@@ -1,1 +1,19 @@
+<html>
+<script>
+    function get_team() {
+        const xhttp = new XMLHttpRequest();
+        const url='http://localhost:3000/team/member';
+        xhttp.open('GET', url);
+        xhttp.send();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("result").innerHTML = this.responseText;
+            }
+        };
+    }
+</script>
 <h1>Hello World</h1>
+<h2>Team members</h2>
+<button onclick='get_team()'>See Team</button>
+<div id='result'></div>
+</html>
